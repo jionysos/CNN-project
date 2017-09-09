@@ -16,11 +16,11 @@ tf.set_random_seed(1234)
 
 train_num = int(int(data.shape[0]) * .7)
 print(train_num)  # 700
-# print(data.shape)   # (1000, 5626)
+
 
 x_train, t_train = data[:train_num, :-1], tf.one_hot(data[:train_num, -1], 2)
 x_test, t_test = data[train_num:, :-1], tf.one_hot(data[train_num:, -1], 2)
-# print(x_test.shape, t_test.shape)  # (300, 5625) (300, 2)
+
 
 lr = 0.001
 training_epochs = 70
