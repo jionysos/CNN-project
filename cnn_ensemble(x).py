@@ -3,7 +3,7 @@ import tensorflow as tf
 import random
 
 data = np.loadtxt('/root//data//EleRhi//image_data_eleph_rhino.csv', delimiter=',')
-# data = np.loadtxt('/root//jiwon//cc2.csv', delimiter=',')
+
 
 
 print(type(data))
