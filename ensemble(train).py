@@ -79,7 +79,6 @@ class Model:
             W2 = tf.get_variable('W2', shape=[3, 3, 32, 64], initializer=tf.contrib.layers.xavier_initializer())
             #         W2 = tf.Variable(tf.random_normal([3, 3, 32, 64], stddev=0.01))
             L2 = tf.nn.conv2d(L1, W2, strides=[1, 1, 1, 1], padding='SAME')
-            # 여기서 NORM
             #         L2 = self.BN(L2, self.training)
             L2 = tf.nn.relu(L2)
             L2 = tf.nn.max_pool(L2, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
@@ -90,7 +89,6 @@ class Model:
             W3 = tf.get_variable('W3', shape=[3, 3, 64, 128], initializer=tf.contrib.layers.xavier_initializer())
             #         W3 = tf.Variable(tf.random_normal([3, 3, 64, 128], stddev=0.01))
             L3 = tf.nn.conv2d(L2, W3, strides=[1, 1, 1, 1], padding='SAME')
-            # 여기서 NORM
             # L2 = self.batch_norm(L2, )
             #         L3 = self.BN(L3, self.training)
             L3 = tf.nn.relu(L3)
@@ -104,7 +102,6 @@ class Model:
             W4 = tf.get_variable('W4', shape=[3, 3, 128, 256], initializer=tf.contrib.layers.xavier_initializer())
             #         W3 = tf.Variable(tf.random_normal([3, 3, 64, 128], stddev=0.01))
             L4 = tf.nn.conv2d(L3, W4, strides=[1, 1, 1, 1], padding='SAME')
-            # 여기서 NORM
             L4 = self.BN(L4, self.training)
             L4 = tf.nn.relu(L4)
             L4 = tf.nn.max_pool(L4, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
